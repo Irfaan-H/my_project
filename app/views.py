@@ -14,3 +14,11 @@ class workersList(APIView):
         workers1=workers.objects.all()
         serializer=workersSerializers(workers1,many=True)
         return Response(serializer.data)
+    
+class workersDetail(APIView):
+
+    def workersdetail(request,pk):
+        workers1=workers.objects.get(id=pk)
+        serializer=workersSerializers(workers1,many=False)
+        return Response(serializer.data)
+         
